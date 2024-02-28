@@ -15,5 +15,12 @@ public class LogisticalGraph extends Pane {
     TextField carryingCapacityTextField = new TextField("Carrying Capacity");
     Button btSave = new Button("Save");
 
+    public void LogisticalGraphView(){
+
+    }
+    public void Save(){
+
+    }
+
 
 }
