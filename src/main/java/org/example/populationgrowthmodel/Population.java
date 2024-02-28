@@ -29,6 +29,15 @@ public class Population {
     public void setGrowthRate(int growthRate){
         this.growthRate = growthRate;
     }
+    public void setTime(double time){
+        this.time = time;
+    }
+    public void setBirthRate(double birthRate){
+        this.birthRate = birthRate;
+    }
+    public void setDeathRate(double deathRate){
+        this.deathRate = deathRate;
+    }
 
 
 
