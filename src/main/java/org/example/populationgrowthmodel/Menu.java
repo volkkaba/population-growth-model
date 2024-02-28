@@ -1,5 +1,8 @@
 package org.example.populationgrowthmodel;
 
-public class Menu {
+import javafx.scene.layout.Pane;
+
+public class Menu extends Pane {
+
 
 }
