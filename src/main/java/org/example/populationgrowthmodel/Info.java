@@ -1,4 +1,6 @@
 package org.example.populationgrowthmodel;
 
-public class Info {
+import javafx.scene.layout.Pane;
+
+public class Info extends Pane {
 }

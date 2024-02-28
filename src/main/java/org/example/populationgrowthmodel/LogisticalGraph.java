@@ -1,4 +1,6 @@
 package org.example.populationgrowthmodel;
 
-public class LogisticalGraph {
+import javafx.scene.layout.Pane;
+
+public class LogisticalGraph extends Pane {
 }

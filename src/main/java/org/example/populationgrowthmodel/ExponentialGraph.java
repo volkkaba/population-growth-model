@@ -1,4 +1,6 @@
 package org.example.populationgrowthmodel;
 
-public class ExponentialGraph {
+import javafx.scene.layout.Pane;
+
+public class ExponentialGraph extends Pane {
 }

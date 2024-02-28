@@ -4,5 +4,4 @@ import javafx.scene.layout.Pane;
 
 public class Menu extends Pane {
 
-
 }
