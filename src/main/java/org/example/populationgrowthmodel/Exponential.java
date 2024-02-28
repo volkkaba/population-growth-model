@@ -5,4 +5,6 @@ public class Exponential extends Population {
                 double growthRate, double time, double birthRate, double deathRate){
         super(name, initialPopulationSize, currentPopulationSize, growthRate, time, birthRate, deathRate);
     }
+
+
     }

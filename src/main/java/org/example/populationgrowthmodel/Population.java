@@ -1,13 +1,13 @@
 package org.example.populationgrowthmodel;
 
 public class Population {
-    private String name;
-    private int initialPopulationSize;
-    private int currentPopulationSize;
-    private double growthRate;
-    private double time;
-    private double birthRate;
-    private double deathRate;
+    String name;
+    int initialPopulationSize;
+    int currentPopulationSize;
+    double growthRate;
+    double time;
+    double birthRate;
+    double deathRate;
 
     public Population(String name, int initialPopulationSize, int currentPopulationSize,
                double growthRate, double time, double birthRate, double deathRate){
