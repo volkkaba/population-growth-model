@@ -17,6 +17,7 @@ public class Population {
         this.birthRate = birthRate;
         this.deathRate = deathRate;
 
+
     }
 
 
