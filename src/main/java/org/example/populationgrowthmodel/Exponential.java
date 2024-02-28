@@ -1,4 +1,4 @@
 package org.example.populationgrowthmodel;
 
-public class Exponential {
+public class Exponential extends Population {
 }
