@@ -1,4 +1,14 @@
 package org.example.populationgrowthmodel;
 
-public class Info {
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+
+public class Info extends Pane {
+    TextField tf1 = new TextField();
+    TextField tf2 = new TextField();
+    // These are meant to be text not input boxes
+
+    public void InfoBox(){
+
+    }
 }

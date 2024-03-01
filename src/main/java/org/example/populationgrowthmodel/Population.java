@@ -1,13 +1,13 @@
 package org.example.populationgrowthmodel;
 
 public class Population {
-    private String name;
-    private int initialPopulationSize;
-    private int currentPopulationSize;
-    private double growthRate;
-    private double time;
-    private double birthRate;
-    private double deathRate;
+    String name;
+    int initialPopulationSize;
+    int currentPopulationSize;
+    double growthRate;
+    double time;
+    double birthRate;
+    double deathRate;
 
     public Population(String name, int initialPopulationSize, int currentPopulationSize,
                double growthRate, double time, double birthRate, double deathRate){
@@ -29,7 +29,21 @@ public class Population {
     public void setGrowthRate(int growthRate){
         this.growthRate = growthRate;
     }
+    public void setTime(double time){
+        this.time = time;
+    }
+    public void setBirthRate(double birthRate){
+        this.birthRate = birthRate;
+    }
+    public void setDeathRate(double deathRate){
+        this.deathRate = deathRate; deathRate = deathRate;
+    }
 
+    public static void main(String[] args){
+        System.out.println("Hello");
+
+        System.out.println("HELLO2");
+    }
 
 
 }
