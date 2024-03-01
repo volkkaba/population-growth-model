@@ -36,7 +36,7 @@ public class Population {
         this.birthRate = birthRate;
     }
     public void setDeathRate(double deathRate){
-        this.deathRate = deathRate;
+        this.deathRate = deathRate; deathRate = deathRate;
     }
 
 
