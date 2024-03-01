@@ -39,6 +39,9 @@ public class Population {
         this.deathRate = deathRate; deathRate = deathRate;
     }
 
+    public static void main(String[] args){
+        System.out.println("Hello");
+    }
 
 
 }
