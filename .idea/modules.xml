@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/population-growth-model.iml" filepath="$PROJECT_DIR$/.idea/population-growth-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/population-growth-model.iml" filepath="$PROJECT_DIR$/population-growth-model.iml" />
     </modules>
   </component>
 </project>
