@@ -32,11 +32,11 @@ public class MenuClass extends Application {
         HBox hb = new HBox();
         Pane expoPane = new Pane();
         // SET IMAGE
-        ImageView expoImg = new ImageView(new Image("file:image1name.jpg"));
+        ImageView expoImg = new ImageView(new Image("file:assets/exponential_model.jpg"));
         expoPane.getChildren().addAll(expoImg);
         Pane logisPane = new Pane();
         // SET IMAGE
-        ImageView logisImg = new ImageView(new Image("file:image2name.jpg"));
+        ImageView logisImg = new ImageView(new Image("file:assets/logistical_model.jpg"));
         logisPane.getChildren().addAll(logisImg);
         hb.getChildren().addAll(expoPane, logisPane);
 
