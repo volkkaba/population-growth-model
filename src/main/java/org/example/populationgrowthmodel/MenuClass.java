@@ -34,11 +34,4 @@ public class MenuClass extends Application {
         primaryStage.setTitle("Population Dynamics Simulator");
         primaryStage.show();
     }
-    // Lambda methods
-    public void openExpoSimulator(){
-        // code to open javafx class for Expo
-    }
-    public void openLogisSimulator(){
-        // code to open java fx class for Logistical
-    }
 }
