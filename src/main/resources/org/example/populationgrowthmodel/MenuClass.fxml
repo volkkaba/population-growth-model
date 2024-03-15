@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="756.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.populationgrowthmodel.FXMLMenuController">
+<AnchorPane prefHeight="756.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.populationgrowthmodel.FXMLMenuController">
    <children>
       <HBox layoutY="656.0" prefHeight="60.0" prefWidth="200.0" styleClass="background-color-footer" stylesheets="@../../../../../css/MainStyles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <BorderPane layoutX="485.0" layoutY="270.0" prefHeight="696.0" prefWidth="1056.0" styleClass="background-color-main" stylesheets="@../../../../../css/MainStyles.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <HBox alignment="CENTER" prefHeight="627.0" prefWidth="1056.0" spacing="70.0" stylesheets="@../../../../../css/MainStyles.css" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="graph-image">
-                     <image>
-                        <Image url="@../../../../../assets/exponential_model.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" styleClass="graph-image">
-                     <image>
-                        <Image url="@../../../../../assets/logisitcal_model.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="graph-image">
+                     <graphic>
+                        <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../assets/ExpoGrowthMenu.PNG" />
+                           </image></ImageView>
+                     </graphic></Button>
+                  <Button graphicTextGap="0.0" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="graph-image">
+                     <graphic>
+                        <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../assets/LogiGrowthMenu.PNG" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </HBox>
          </center>
