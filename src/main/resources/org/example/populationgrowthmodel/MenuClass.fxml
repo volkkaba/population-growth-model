@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="756.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.populationgrowthmodel.FXMLMenuController">
+<AnchorPane prefHeight="743.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.populationgrowthmodel.FXMLMenuController">
    <children>
-      <HBox layoutY="656.0" prefHeight="60.0" prefWidth="200.0" styleClass="background-color-footer" stylesheets="@../../../../../css/MainStyles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <BorderPane layoutX="485.0" layoutY="270.0" prefHeight="696.0" prefWidth="1056.0" styleClass="background-color-main" stylesheets="@../../../../../css/MainStyles.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutY="656.0" prefHeight="0.0" prefWidth="1056.0" styleClass="background-color-main" stylesheets="@../../../../../css/MainStyles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <BorderPane layoutX="485.0" layoutY="270.0" prefHeight="696.0" prefWidth="1056.0" styleClass="background-color-main" stylesheets="@../../../../../css/MainStyles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <HBox alignment="CENTER" prefHeight="627.0" prefWidth="1056.0" spacing="70.0" stylesheets="@../../../../../css/MainStyles.css" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="635.0" prefWidth="1056.0" spacing="70.0" styleClass="background-color-main" stylesheets="@../../../../../css/MainStyles.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#buttonExpoAction" prefHeight="455.0" prefWidth="389.0" styleClass="graph-image">
+                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#buttonExpoAction" prefHeight="455.0" prefWidth="389.0">
                      <graphic>
                         <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../assets/ExpoGrowthMenu.PNG" />
                            </image></ImageView>
-                     </graphic></Button>
-                  <Button graphicTextGap="0.0" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="graph-image">
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="graph-image" />
+                        <String fx:value="background-color-main" />
+                     </styleClass></Button>
+                  <Button graphicTextGap="0.0" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="background-color-main">
                      <graphic>
-                        <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true" styleClass="background-color-main">
                            <image>
                               <Image url="@../../../../../assets/LogiGrowthMenu.PNG" />
                            </image></ImageView>
@@ -31,9 +36,9 @@
             </HBox>
          </center>
          <top>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="background-color-main" BorderPane.alignment="CENTER">
                <children>
-                  <TextArea blendMode="MULTIPLY" styleClass="background-color-main" text="Population Dynamics Simulator" wrapText="true" HBox.hgrow="ALWAYS">
+                  <TextArea blendMode="MULTIPLY" prefHeight="264.0" prefWidth="1056.0" styleClass="background-color-main" text="Population Dynamics Simulator" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="50.0" />
                      </font>
