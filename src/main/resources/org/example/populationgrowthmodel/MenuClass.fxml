@@ -12,7 +12,7 @@
          <center>
             <HBox alignment="CENTER" prefHeight="627.0" prefWidth="1056.0" spacing="70.0" stylesheets="@../../../../../css/MainStyles.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="graph-image">
+                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#buttonExpoAction" prefHeight="455.0" prefWidth="389.0" styleClass="graph-image">
                      <graphic>
                         <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true">
                            <image>
