@@ -1,20 +1,26 @@
 package org.example.populationgrowthmodel;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class FXMLMenuController {
+    private Stage primaryStage;
+
+    public void setPrimaryStage(Stage primaryStage){
+        this.primaryStage = primaryStage;
+    }
     @FXML
-    private Button buttonExpo, buttonLogis;
+    private ImageView imageExpo, imageLogis;
 
     @FXML
-    private void buttonExpoAction(ActionEvent event){
+    private void imageExpoAction(MouseEvent event){
         // action to open logistical FX window/pane
     }
 
     @FXML
-    private void buttonLogisAction(ActionEvent event){
+    private void imageLogisAction(MouseEvent event){
         // action to open exponential FX window/pane
     }
 }
