@@ -16,11 +16,25 @@ public class FXMLMenuController {
 
     @FXML
     private void imageExpoAction(MouseEvent event){
-        // action to open logistical FX window/pane
+        // action to open logistical FX window/pane, fxml and java controller classes need to be created first
+        /*
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ExponentialScene.fxml"));
+        Parent root = loader.load();
+        ExponentialSceneController controller = loader.getController();
+        controller.setPrimaryStage(primaryStage);
+        primaryStage.setScene(new Scene(root));
+        */
     }
 
     @FXML
     private void imageLogisAction(MouseEvent event){
-        // action to open exponential FX window/pane
+        // action to open exponential FX window/pane, fxml and java controller classes need to be created first
+        /*
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LogisticalScene.fxml"));
+        Parent root = loader.load();
+        LogisticalSceneController controller = loader.getController();
+        controller.setPrimaryStage(primaryStage);
+        primaryStage.setScene(new Scene(root));
+         */
     }
 }
