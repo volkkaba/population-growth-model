@@ -1,11 +1,14 @@
 
 .background-color-main{
-    -fx-background-color: #3D676A;
+    -fx-background-color: #3D676A
 }
 
-.background-color-footer{
-    -fx-background-color: #3D676A;
-    /*-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #63a4ff, #ffffff); */
+.background-color-header{
+    -fx-background-color: linear-gradient(#245656, #3D676A);
+}
+
+.background-color-exponential{
+    -fx-background-color: linear-gradient(#0d2525, #3D676A);
 }
 
 .graph-image{
