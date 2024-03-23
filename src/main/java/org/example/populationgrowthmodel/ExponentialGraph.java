@@ -23,6 +23,7 @@ public class ExponentialGraph extends Application {
 
     public void ExponentialGraphView(){
 
+
     }
     public void Save(){
 
