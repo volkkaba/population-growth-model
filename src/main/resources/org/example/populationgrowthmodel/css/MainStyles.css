@@ -11,8 +11,14 @@
     -fx-background-color: linear-gradient(#0d2525, #3D676A);
 }
 
-.graph-image{
-    -fx-border-radius: 50px;
+.background-color-white{
+    -fx-background-color: white;
 }
+
+
+.text-style {
+
+}
+
 
 

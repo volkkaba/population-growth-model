@@ -12,22 +12,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ExponentialGraph extends Application {
-    int xAxis;
-    int yAxis;
-    TextField nameTextField = new TextField("Project Title");
-    TextField popSizeTextField = new TextField("Initial Pop. Size");
-    TextField growthRateTextField = new TextField("Growth Rate");
-    TextField birthRateTextField = new TextField("Birth Rate");
-    TextField deathRateTextField = new TextField("Death Rate");
-    Button btSave = new Button("Save");
-
-    public void ExponentialGraphView(){
-
-
-    }
-    public void Save(){
-
-    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
