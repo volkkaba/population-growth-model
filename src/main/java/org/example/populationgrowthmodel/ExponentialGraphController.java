@@ -48,11 +48,12 @@ public class ExponentialGraphController{
 
         XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
+        int populationSize = 0;
         for (int i = 0; i < 20; i++) {
-            int populationSize = (int) ((int) doubleInitialPopulationSize * Math.exp(growthRate * i));
+            populationSize = (int) ((int) doubleInitialPopulationSize * Math.exp(growthRate * i));
             series.getData().add(new XYChart.Data<>(i , populationSize)); // Add data point to the series
         }
-
+        resultsLabel.setText("Final Population " + populationSize);
         areaChart.getData().add(series); // Add the series to the LineChart
 
     }
