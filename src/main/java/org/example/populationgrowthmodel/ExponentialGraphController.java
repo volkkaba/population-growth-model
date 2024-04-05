@@ -2,6 +2,7 @@ package org.example.populationgrowthmodel;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -13,7 +14,7 @@ import java.util.ResourceBundle;
 
 public class ExponentialGraphController{
     @FXML
-    private LineChart<String, Integer> lineChart;
+    private AreaChart<Number, Number> areaChart;
 
     @FXML
     private TextField tfInitialPopulationSize;
@@ -45,14 +46,14 @@ public class ExponentialGraphController{
 
         resultsLabel.setText("Result growth rate " + growthRate);
 
-        XYChart.Series<String, Integer> series = new XYChart.Series<>(); // Create a new series
+        XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
         for (int i = 0; i < 20; i++) {
             int populationSize = (int) ((int) doubleInitialPopulationSize * Math.exp(growthRate * i));
-            series.getData().add(new XYChart.Data<>("A" , populationSize)); // Add data point to the series
+            series.getData().add(new XYChart.Data<>(i , populationSize)); // Add data point to the series
         }
 
-        lineChart.getData().add(series); // Add the series to the LineChart
+        areaChart.getData().add(series); // Add the series to the LineChart
 
     }
     /*@Override
