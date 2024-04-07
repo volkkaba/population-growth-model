@@ -7,6 +7,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -24,6 +25,8 @@ public class ExponentialGraphController{
     private TextField tfDeathRate;
     @FXML
     private Label resultsLabel;
+    @FXML
+    private RadioButton discreteButton;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
@@ -51,21 +54,20 @@ public class ExponentialGraphController{
         int populationSize = 0;
         for (int i = 0; i < 20; i++) {
             populationSize = (int) ((int) doubleInitialPopulationSize * Math.exp(growthRate * i));
-            series.getData().add(new XYChart.Data<>(i , populationSize)); // Add data point to the series
+            series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
+            // Possible code to invoke discrete
+            /*
+            if (discreteButton.isSelected()){
+                populationSize = (int) ((int) doubleInitialPopulationSize * Math.pow(1 + growthRate, i));
+            }
+            else {
+                populationSize = (int) ((int) doubleInitialPopulationSize * Math.exp(growthRate * i));
+                series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
+            }
+            */
         }
         resultsLabel.setText("Final Population " + populationSize);
         areaChart.getData().add(series); // Add the series to the LineChart
 
     }
-    /*@Override
-    public void initialize(URL location, ResourceBundle resources) {
-        XYChart.Series<String, Integer> series = new XYChart.Series<>();
-
-        series.getData().add(new XYChart.Data<>("1", 5));
-        series.getData().add(new XYChart.Data<>("2", 3));
-        series.getData().add(new XYChart.Data<>("3", 8));
-
-        lineChart.getData().add(series);
-
-    }*/
 }
