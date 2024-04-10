@@ -62,7 +62,7 @@
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Button>
-                  <RadioButton mnemonicParsing="false" prefHeight="169.0" prefWidth="271.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Discrete Time Graphing">
+                  <RadioButton fx:id="discreteButton" mnemonicParsing="false" prefHeight="169.0" prefWidth="271.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Discrete Time Graphing">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>
