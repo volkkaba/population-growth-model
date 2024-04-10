@@ -67,7 +67,10 @@
                                 <Font name="Britannic Bold" size="20.0" />
                             </font>
                         </RadioButton>
-                  <TextField fx:id="tfCarryingCapacity" prefHeight="122.0" prefWidth="251.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="tfCarryingCapacity" alignment="BOTTOM_CENTER" prefHeight="122.0" prefWidth="251.0" promptText="_______" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Britannic Bold" size="40.0" />
+                     </font></TextField>
                     </children>
                 </GridPane>
             </children>
