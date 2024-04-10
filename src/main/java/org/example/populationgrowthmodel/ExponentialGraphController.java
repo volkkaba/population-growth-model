@@ -54,20 +54,20 @@ public class ExponentialGraphController{
         XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
         int populationSize = 0;
-        for (int i = 0; i < 20; i++) {
-            populationSize = (int) ((int) doubleInitialPopulationSize * Math.exp(growthRate * i));
-            series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
-            // Possible code to invoke discrete
-            /*
-            if (discreteButton.isSelected()){
-                populationSize = (int) ((int) doubleInitialPopulationSize * Math.pow(1 + growthRate, i));
+        if (discreteButton.isSelected()) {
+            for (int i = 0; i <= 20; i++) {
+                //this discrete time exponential graph is still wrong.
+                populationSize = (int) (doubleInitialPopulationSize * Math.pow(1 + growthRate, i));
+                series.getData().add(new XYChart.Data<>(i, populationSize));
             }
-            else {
-                populationSize = (int) ((int) doubleInitialPopulationSize * Math.exp(growthRate * i));
-                series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
-            }
-            */
         }
+        else {
+            for (int i = 0; i <= 20; i++) {
+                populationSize = (int) (doubleInitialPopulationSize * Math.exp(growthRate * i));
+                series.getData().add(new XYChart.Data<>(i, populationSize));
+            }
+        }
+
         resultsLabel.setText("Final Population " + populationSize);
         areaChart.getData().add(series); // Add the series to the LineChart
 
