@@ -17,6 +17,8 @@ public class FXMLMenuController {
 
     @FXML
     private Button imageViewExponential;
+    @FXML
+    private Button imageViewLogistical;
 
     @FXML
     public void handleImageViewExponential() {
@@ -42,17 +44,27 @@ public class FXMLMenuController {
         }
     }
 
-
-
     @FXML
-    private void imageLogisAction(MouseEvent event){
-        // action to open exponential FX window/pane, fxml and java controller classes need to be created first
-        /*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("LogisticalGraph.fxml"));
-        Parent root = loader.load();
-        LogisticalSceneController controller = loader.getController();
-        controller.setPrimaryStage(primaryStage);
-        primaryStage.setScene(new Scene(root));
-         */
+    public void handleImageViewLogistical(){
+        // Attach event handler to the image
+        try {
+            // Load the FXML file for the ExponentialGraph pane
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LogisticalGraph.fxml"));
+            Parent root = loader.load();
+
+            // Get the primary stage
+            Stage primaryStage = (Stage) imageViewLogistical.getScene().getWindow();
+            // Set the scene with the ExponentialGraph pane
+            Scene logisticalScene = new Scene(root);
+            primaryStage.setScene(logisticalScene);
+
+            // Get the controller for the ExponentialGraph pane
+            LogisticalGraphController logisticalGraphController = loader.getController();
+            // Optionally, initialize the controller or pass data to it
+            // exponentialGraphController.initialize();
+        } catch (IOException e) {
+            System.err.println("Error loading LogisticalGraph.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
