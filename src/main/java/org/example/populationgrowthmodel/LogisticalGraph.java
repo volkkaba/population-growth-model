@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -17,6 +18,8 @@ public class LogisticalGraph extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LogisticalGraph.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        Image image = new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/populationdynamicsicon.jpg"));
+        primaryStage.getIcons().add(image);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Population Dynamics Simulator");
         primaryStage.show();
