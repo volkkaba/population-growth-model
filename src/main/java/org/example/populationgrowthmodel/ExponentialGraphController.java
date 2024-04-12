@@ -2,6 +2,7 @@ package org.example.populationgrowthmodel;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -10,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,5 +74,29 @@ public class ExponentialGraphController{
         resultsLabel.setText("Final Population " + populationSize);
         areaChart.getData().add(series); // Add the series to the LineChart
 
+    }
+    public void displayResultsInfoBox() {
+        if (discreteButton.isSelected()){
+            VBox layout = new VBox(10);
+            layout.getChildren().addAll(new Label("Discrete"));
+            // Imageview here
+
+            Scene popupScene = new Scene(layout, 250, 150);
+            Stage popupStage = new Stage();
+            popupStage.setScene(popupScene);
+            popupStage.setTitle("Results Info Box");
+            popupStage.show();
+        }
+        else {
+            VBox layout = new VBox(10);
+            layout.getChildren().addAll(new Label("Not Discrete"));
+            // Image view here
+
+            Scene popupScene = new Scene(layout, 250, 150);
+            Stage popupStage = new Stage();
+            popupStage.setScene(popupScene);
+            popupStage.setTitle("Results Info Box");
+            popupStage.show();
+        }
     }
 }

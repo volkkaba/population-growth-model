@@ -37,7 +37,7 @@
                         <Font name="Britannic Bold" size="40.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="resultsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="134.0" prefWidth="249.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Results" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Label fx:id="resultsLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#displayResultsInfoBox" prefHeight="134.0" prefWidth="249.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Results" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <font>
                         <Font name="Britannic Bold" size="35.0" />
                      </font>
