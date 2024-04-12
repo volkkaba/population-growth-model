@@ -29,6 +29,8 @@ public class MenuClass extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClass.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        Image image = new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/populationdynamicsicon.jpg"));
+        primaryStage.getIcons().add(image);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Population Dynamics Simulator");
         primaryStage.show();
