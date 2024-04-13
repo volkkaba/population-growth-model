@@ -11,6 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -77,25 +80,25 @@ public class ExponentialGraphController{
     }
     public void displayResultsInfoBox() {
         if (discreteButton.isSelected()){
-            VBox layout = new VBox(10);
-            layout.getChildren().addAll(new Label("Discrete"));
-            // Imageview here
+            Pane p = new Pane();
+            ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/discreteresultsinfoboxexponential.png")));
+            p.getChildren().addAll(img);
 
-            Scene popupScene = new Scene(layout, 250, 150);
+            Scene popupScene = new Scene(p);
             Stage popupStage = new Stage();
             popupStage.setScene(popupScene);
-            popupStage.setTitle("Results Info Box");
+            popupStage.setTitle("Discrete Population Info Box");
             popupStage.show();
         }
         else {
-            VBox layout = new VBox(10);
-            layout.getChildren().addAll(new Label("Not Discrete"));
-            // Image view here
+            Pane p = new Pane();
+            ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/resultsinfoboxexponential.png")));
+            p.getChildren().addAll(img);
 
-            Scene popupScene = new Scene(layout, 250, 150);
+            Scene popupScene = new Scene(p);
             Stage popupStage = new Stage();
             popupStage.setScene(popupScene);
-            popupStage.setTitle("Results Info Box");
+            popupStage.setTitle("Population Info Box");
             popupStage.show();
         }
     }
