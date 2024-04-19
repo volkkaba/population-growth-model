@@ -1,7 +1,9 @@
 package org.example.populationgrowthmodel;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.LineChart;
@@ -17,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,6 +38,8 @@ public class ExponentialGraphController{
     private Label resultsLabel;
     @FXML
     private RadioButton discreteButton;
+    @FXML
+    private Button MenuButton;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
@@ -102,4 +107,25 @@ public class ExponentialGraphController{
             popupStage.show();
         }
     }
+
+    public void handleMenuButton() {
+        // Attach event handler to the image
+        try {
+            // Load the FXML file for the ExponentialGraph pane
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClass.fxml"));
+            Parent root = loader.load();
+
+            // Get the primary stage
+            Stage primaryStage = (Stage) MenuButton.getScene().getWindow();
+
+            // Set the scene with the Menu pane
+            Scene menuScene = new Scene(root);
+            primaryStage.setScene(menuScene);
+
+        } catch (IOException e) {
+            System.err.println("Error loading ExponentialGraph.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }
