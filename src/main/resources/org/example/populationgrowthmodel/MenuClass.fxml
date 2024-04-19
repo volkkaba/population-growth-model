@@ -26,7 +26,7 @@
                         <String fx:value="background-color-main" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="imageViewLogistical" graphicTextGap="0.0" onMouseClicked="#handleImageViewLogistical" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="background-color-main">
+                  <Button fx:id="imageViewLogistical" graphicTextGap="0.0" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleImageViewLogistical" prefHeight="455.0" prefWidth="389.0" styleClass="background-color-main">
                      <graphic>
                         <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" smooth="false" styleClass="b">
                            <image>
@@ -49,7 +49,7 @@
                         <Font name="Britannic Bold" size="60.0" />
                      </font>
                   </TextField>
-                  <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="75.0" style="-fx-background-color: #000000, #000000, #3D676A;" text="Help" underline="true">
+                  <Button fx:id="buttonInfo" mnemonicParsing="false" onAction="#btInfo" prefHeight="49.0" prefWidth="75.0" style="-fx-background-color: #000000, #000000, #3D676A;" text="Info" underline="true">
                      <font>
                         <Font name="Britannic Bold" size="16.0" />
                      </font>

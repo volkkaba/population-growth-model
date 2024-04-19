@@ -9,7 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -19,6 +21,8 @@ public class FXMLMenuController {
     private Button imageViewExponential;
     @FXML
     private Button imageViewLogistical;
+    @FXML
+    private Button buttonInfo;
 
     @FXML
     public void handleImageViewExponential() {
@@ -45,7 +49,7 @@ public class FXMLMenuController {
     }
 
     @FXML
-    public void handleImageViewLogistical(){
+    public void handleImageViewLogistical() {
         // Attach event handler to the image
         try {
             // Load the FXML file for the ExponentialGraph pane
@@ -67,4 +71,22 @@ public class FXMLMenuController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void btInfo(ActionEvent e) throws Exception{
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("InfoWindow.fxml"));
+            Parent root = loader.load();
+            Stage primaryStage = (Stage) buttonInfo.getScene().getWindow();
+            Scene infoScene = new Scene(root);
+            primaryStage.setScene(infoScene);
+            InfoWindowController infoWindowController = loader.getController();
+
+        }catch (Exception f){
+            f.printStackTrace();
+        }
+
+    }
 }
+
+
