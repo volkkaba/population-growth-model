@@ -26,9 +26,9 @@
                         <String fx:value="background-color-main" />
                      </styleClass>
                   </Button>
-                  <Button graphicTextGap="0.0" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="background-color-main">
+                  <Button fx:id="imageViewLogistical" graphicTextGap="0.0" onMouseClicked="#handleImageViewLogistical" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" prefHeight="455.0" prefWidth="389.0" styleClass="background-color-main">
                      <graphic>
-                        <ImageView fitHeight="572.0" fitWidth="468.0" onMouseClicked="#imageLogisAction" pickOnBounds="true" smooth="false" styleClass="b">
+                        <ImageView fitHeight="572.0" fitWidth="468.0" pickOnBounds="true" smooth="false" styleClass="b">
                            <image>
                               <Image url="@assets/LogiGrowthMenu.PNG" />
                            </image>
