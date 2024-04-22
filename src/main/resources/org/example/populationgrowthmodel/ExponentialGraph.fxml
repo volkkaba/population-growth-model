@@ -79,6 +79,9 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </AreaChart>
-      <Button fx:id="MenuButton" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#handleMenuButton" text="Home" />
+      <Button fx:id="buttonMenu" layoutX="951.0" layoutY="5.0" mnemonicParsing="false" onAction="#btMenu" style="-fx-background-color: #000000, #000000, #3D676A;" text="Menu" underline="true">
+         <font>
+            <Font name="Britannic Bold" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>

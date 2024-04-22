@@ -1,5 +1,6 @@
 package org.example.populationgrowthmodel;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,7 +40,7 @@ public class ExponentialGraphController{
     @FXML
     private RadioButton discreteButton;
     @FXML
-    private Button MenuButton;
+    private Button buttonMenu;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
@@ -108,24 +109,22 @@ public class ExponentialGraphController{
         }
     }
 
-    public void handleMenuButton() {
-        // Attach event handler to the image
-        try {
-            // Load the FXML file for the ExponentialGraph pane
+
+
+    @FXML
+    public void btMenu(ActionEvent e) throws Exception{
+        try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClass.fxml"));
             Parent root = loader.load();
-
-            // Get the primary stage
-            Stage primaryStage = (Stage) MenuButton.getScene().getWindow();
-
-            // Set the scene with the Menu pane
+            Stage primaryStage = (Stage) buttonMenu.getScene().getWindow();
             Scene menuScene = new Scene(root);
             primaryStage.setScene(menuScene);
+            FXMLMenuController fxmlMenuController = loader.getController();
 
-        } catch (IOException e) {
-            System.err.println("Error loading ExponentialGraph.fxml: " + e.getMessage());
-            e.printStackTrace();
+        }catch (Exception f){
+            f.printStackTrace();
         }
+
     }
 
 }

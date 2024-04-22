@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.populationgrowthmodel.InfoWindowController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0">
+      <Pane prefHeight="768.0" prefWidth="1024.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" vbarPolicy="ALWAYS" vmax="2.0" vvalue="2.0">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="768.0" prefWidth="1024.0" vbarPolicy="ALWAYS" vmax="2.0" vvalue="2.0">
               <content>
-                <AnchorPane prefHeight="400.0" prefWidth="599.0" styleClass="background-color-main" stylesheets="@css/MainStyles.css">
+                <AnchorPane prefHeight="974.0" prefWidth="1020.0" styleClass="background-color-main" stylesheets="@css/MainStyles.css">
                      <children>
                         <Label layoutX="83.0" layoutY="23.0" prefHeight="26.0" prefWidth="626.0" text="LIMITATIONS OF POPULATION GROWTH" textFill="WHITE">
                            <font>
@@ -31,7 +31,7 @@
                            <font>
                               <Font name="Droid Sans Mono" size="13.0" />
                            </font></TextArea>
-                        <TextArea blendMode="COLOR_BURN" editable="false" layoutX="24.0" layoutY="569.0" prefHeight="365.0" prefWidth="535.0" text="The space of an environment is often not the first thing that comes to mind inrelation to factors limiting the growth of a species. It is however crucial to the proper development of a species. A great example of the importance of this factor are the Universe experiments conducted on mice in the 1970’s. The goal of these experiments was to observe how a species with unlimited supplies of food and water would grow in an enclosure with no predators. John Calhoun the researcher in charge of this enclosure often referred to it as a rodent utopia. He started by placing 8 mice in the biome, it took around 150 days for the mice to become acclimated to this “utopia” but after this initial period the population doubled consistently every 50 days. However, these universes all eventually fell into chaos. As a result of overcrowding, social dynamics became obsolete, the mice became more violent as well as more prone to erratic sexual behavior. This breakdown of social order led the population to rapidly decrease in size as more dominant male mice began eating their own pups. The most shocking part of this experiment to Calhoun was that even after the population decreased back to a reasonable size it was not able to bounce back and instead perished. As a result of this experiments, we learn just how important containment space is for species to thrive." wrapText="true">
+                        <TextArea blendMode="COLOR_BURN" editable="false" layoutX="24.0" layoutY="569.0" prefHeight="365.0" prefWidth="655.0" text="The space of an environment is often not the first thing that comes to mind inrelation to factors limiting the growth of a species. It is however crucial to the proper development of a species. A great example of the importance of this factor are the Universe experiments conducted on mice in the 1970’s. The goal of these experiments was to observe how a species with unlimited supplies of food and water would grow in an enclosure with no predators. John Calhoun the researcher in charge of this enclosure often referred to it as a rodent utopia. He started by placing 8 mice in the biome, it took around 150 days for the mice to become acclimated to this “utopia” but after this initial period the population doubled consistently every 50 days. However, these universes all eventually fell into chaos. As a result of overcrowding, social dynamics became obsolete, the mice became more violent as well as more prone to erratic sexual behavior. This breakdown of social order led the population to rapidly decrease in size as more dominant male mice began eating their own pups. The most shocking part of this experiment to Calhoun was that even after the population decreased back to a reasonable size it was not able to bounce back and instead perished. As a result of this experiments, we learn just how important containment space is for species to thrive." wrapText="true">
                            <font>
                               <Font name="Droid Sans Mono" size="13.0" />
                            </font>
@@ -41,6 +41,11 @@
                               <Font name="Droid Sans Mono" size="18.0" />
                            </font>
                         </Label>
+                        <Button fx:id="buttonMenu" layoutX="928.0" layoutY="10.0" mnemonicParsing="false" onAction="#btMenu" prefHeight="49.0" prefWidth="71.0" style="-fx-background-color: #000000, #000000, #3D676A;" text="Menu" underline="true">
+                           <font>
+                              <Font name="Britannic Bold" size="16.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
               </content>
             </ScrollPane>
