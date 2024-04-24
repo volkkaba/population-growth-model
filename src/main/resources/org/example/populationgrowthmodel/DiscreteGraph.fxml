@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.ScatterChart?>
 
-<ScatterChart xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<ScatterChart fx:id="scatterChart" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.populationgrowthmodel.DiscreteGraphController">
   <xAxis>
-    <CategoryAxis side="BOTTOM" />
+    <NumberAxis side="BOTTOM" />
   </xAxis>
   <yAxis>
     <NumberAxis side="LEFT" />

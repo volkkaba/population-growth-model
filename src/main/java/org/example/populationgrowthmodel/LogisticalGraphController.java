@@ -7,8 +7,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -50,8 +54,9 @@ public class LogisticalGraphController {
         double doubleDeathRate = Double.parseDouble(deathRate);
         double doubleCarryingCapacity = Double.parseDouble(carryingCapacity);
 
-        ExponentialGraphCalculations logisticalGraphCalculations = new ExponentialGraphCalculations();
+        ExponentialGraphCalculations logisticalGraphCalculations = new ExponentialGraphCalculations(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate, doubleCarryingCapacity);
         double growthRate = logisticalGraphCalculations.getGrowthRate(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate);
+
 
         resultsLabel.setText("Result growth rate " + growthRate);
 
@@ -64,6 +69,10 @@ public class LogisticalGraphController {
         }
         resultsLabel.setText("Final Population " + populationSize);
         areaChart.getData().add(series); // Add the series to the LineChart
+
+
+
+
     }
     @FXML
     public void btMenu(ActionEvent e) throws Exception{
@@ -80,19 +89,71 @@ public class LogisticalGraphController {
         }
 
     }
-    public void handleDiscreteButton(ActionEvent e) throws Exception{
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("DiscreteGraph.fxml"));
-            Parent root = loader.load();
-            Stage primaryStage = (Stage) buttonMenu.getScene().getWindow();
-            Scene menuScene = new Scene(root);
-            primaryStage.setScene(menuScene);
-            FXMLMenuController fxmlMenuController = loader.getController();
-        }catch (Exception f){
-            f.printStackTrace();
+    public void handleDiscreteButton(ActionEvent e) {
+        try {
+            String initialPopulationSize = tfInitialPopulationSize.getText();
+            String deathRate = tfDeathRate.getText();
+            String carryingCapacity = tfCarryingCapacity.getText();
+
+            // Check if all required fields have input
+            if (initialPopulationSize.isEmpty() || deathRate.isEmpty() || carryingCapacity.isEmpty()) {
+                resultsLabel.setText("Please enter values in all fields!");
+                return;
+            }
+
+            // Convert strings to doubles
+            double doubleInitialPopulationSize = Double.parseDouble(initialPopulationSize);
+            double doubleDeathRate = Double.parseDouble(deathRate);
+            double doubleCarryingCapacity = Double.parseDouble(carryingCapacity);
+
+            // Calculate growth rate
+            ExponentialGraphCalculations logisticalGraphCalculations = new ExponentialGraphCalculations(doubleInitialPopulationSize, 0, doubleDeathRate, doubleCarryingCapacity);
+            double growthRate = logisticalGraphCalculations.getGrowthRate(doubleInitialPopulationSize, 0, doubleDeathRate);
+
+            // Create a new stage for the pop-up window
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle("Discrete Scatter Chart");
+
+            // Create X and Y axes
+            NumberAxis xAxis = new NumberAxis();
+            NumberAxis yAxis = new NumberAxis();
+
+            // Create a scatter chart
+            ScatterChart<Number, Number> scatterChart = new ScatterChart<>(xAxis, yAxis);
+            scatterChart.setTitle("Discrete Scatter Chart");
+
+            // Generate scatter chart data using the provided values
+            XYChart.Series<Number, Number> series = new XYChart.Series<>();
+            series.setName("Discrete Scatter Data");
+
+            // Add data points to the series
+            for (int i = 0; i < 20; i++) {
+                int populationSize = (int) (doubleInitialPopulationSize + growthRate * doubleInitialPopulationSize * (1-doubleInitialPopulationSize/ doubleCarryingCapacity));
+                series.getData().add(new XYChart.Data<>(i, populationSize));
+            }
+
+            // Add the series to the scatter chart
+            scatterChart.getData().add(series);
+
+            // Create a layout and add the scatter chart to it
+            StackPane layout = new StackPane();
+            layout.getChildren().add(scatterChart);
+
+            // Create a scene and set it in the stage
+            Scene scene = new Scene(layout, 400, 300);
+            popupStage.setScene(scene);
+
+            // Show the pop-up window
+            popupStage.showAndWait();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
-
 }
+
+
+
 
 
