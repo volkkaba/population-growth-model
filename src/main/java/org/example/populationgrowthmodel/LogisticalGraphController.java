@@ -129,9 +129,9 @@ public class LogisticalGraphController {
             XYChart.Series<Number, Number> series = new XYChart.Series<>();
             series.setName("Discrete Scatter Data");
 
-            for (int i = 0; i < 200; i++) {
+            for (int i = 0; i < 20; i++) {
                 double t = i;
-                double populationSize = doubleCarryingCapacity / (1 + ((doubleCarryingCapacity - doubleInitialPopulationSize) / doubleInitialPopulationSize) * Math.exp(growthRate * t));
+                double populationSize = (int) ((int) ((doubleCarryingCapacity * doubleInitialPopulationSize) / (doubleInitialPopulationSize + ((doubleCarryingCapacity - doubleInitialPopulationSize) * Math.exp(-growthRate * i)))));
                 series.getData().add(new XYChart.Data<>(t, populationSize));
             }
 
