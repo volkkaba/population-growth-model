@@ -26,7 +26,7 @@ public class LogisticalGraphController {
     @FXML
     private Label resultsLabel;
     @FXML
-    private RadioButton discreteButton;
+    private Button discreteButton;
     @FXML
     private TextField tfCarryingCapacity;
     @FXML

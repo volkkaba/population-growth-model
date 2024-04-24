@@ -37,8 +37,8 @@ public class ExponentialGraphController{
     private TextField tfDeathRate;
     @FXML
     private Label resultsLabel;
-    @FXML
-    private RadioButton discreteButton;
+    //@FXML
+    //private Button discreteButton;
     @FXML
     private Button buttonMenu;
 
@@ -66,37 +66,16 @@ public class ExponentialGraphController{
         XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
         int populationSize = 0;
-        if (discreteButton.isSelected()) {
-            for (int i = 0; i <= 20; i++) {
-                //this discrete time exponential graph is still wrong.
-                populationSize = (int) (doubleInitialPopulationSize * Math.pow(1 + growthRate, i));
-                series.getData().add(new XYChart.Data<>(i, populationSize));
-            }
-        }
-        else {
             for (int i = 0; i <= 20; i++) {
                 populationSize = (int) (doubleInitialPopulationSize * Math.exp(growthRate * i));
                 series.getData().add(new XYChart.Data<>(i, populationSize));
             }
-        }
 
         resultsLabel.setText("Final Population " + populationSize);
         areaChart.getData().add(series); // Add the series to the LineChart
 
     }
     public void displayResultsInfoBox() {
-        if (discreteButton.isSelected()){
-            Pane p = new Pane();
-            ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/discreteresultsinfoboxexponential.png")));
-            p.getChildren().addAll(img);
-
-            Scene popupScene = new Scene(p);
-            Stage popupStage = new Stage();
-            popupStage.setScene(popupScene);
-            popupStage.setTitle("Discrete Population Info Box");
-            popupStage.show();
-        }
-        else {
             Pane p = new Pane();
             ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/resultsinfoboxexponential.png")));
             p.getChildren().addAll(img);
@@ -107,8 +86,6 @@ public class ExponentialGraphController{
             popupStage.setTitle("Population Info Box");
             popupStage.show();
         }
-    }
-
 
 
     @FXML
