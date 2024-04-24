@@ -80,6 +80,18 @@ public class LogisticalGraphController {
         }
 
     }
+    public void handleDiscreteButton(ActionEvent e) throws Exception{
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DiscreteGraph.fxml"));
+            Parent root = loader.load();
+            Stage primaryStage = (Stage) buttonMenu.getScene().getWindow();
+            Scene menuScene = new Scene(root);
+            primaryStage.setScene(menuScene);
+            FXMLMenuController fxmlMenuController = loader.getController();
+        }catch (Exception f){
+            f.printStackTrace();
+        }
+    }
 
 }
 

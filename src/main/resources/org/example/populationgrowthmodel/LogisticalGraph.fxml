@@ -73,7 +73,7 @@
                         <Font name="Britannic Bold" size="40.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="discreteButton" mnemonicParsing="false" prefHeight="132.0" prefWidth="336.0" text="Discrete Time Graph" GridPane.columnIndex="3">
+                  <Button fx:id="discreteButton" mnemonicParsing="false" onAction="#handleDiscreteButton" prefHeight="132.0" prefWidth="336.0" text="Discrete Time Graph" GridPane.columnIndex="3">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
