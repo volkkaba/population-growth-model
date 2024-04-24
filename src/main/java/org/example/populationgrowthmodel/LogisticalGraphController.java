@@ -63,7 +63,7 @@ public class LogisticalGraphController {
         XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
         int populationSize = 0;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 200; i++) {
             populationSize = (int) ((int) ((doubleCarryingCapacity * doubleInitialPopulationSize) / (doubleInitialPopulationSize + ((doubleCarryingCapacity - doubleInitialPopulationSize) * Math.exp(-growthRate * i)))));
             series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
         }
@@ -92,6 +92,7 @@ public class LogisticalGraphController {
     public void handleDiscreteButton(ActionEvent e) {
         try {
             String initialPopulationSize = tfInitialPopulationSize.getText();
+            String birthRate = tfBirthRate.getText();
             String deathRate = tfDeathRate.getText();
             String carryingCapacity = tfCarryingCapacity.getText();
 
@@ -103,12 +104,13 @@ public class LogisticalGraphController {
 
             // Convert strings to doubles
             double doubleInitialPopulationSize = Double.parseDouble(initialPopulationSize);
+            double doubleBirthRate = Double.parseDouble(birthRate);
             double doubleDeathRate = Double.parseDouble(deathRate);
             double doubleCarryingCapacity = Double.parseDouble(carryingCapacity);
 
             // Calculate growth rate
-            ExponentialGraphCalculations logisticalGraphCalculations = new ExponentialGraphCalculations(doubleInitialPopulationSize, 0, doubleDeathRate, doubleCarryingCapacity);
-            double growthRate = logisticalGraphCalculations.getGrowthRate(doubleInitialPopulationSize, 0, doubleDeathRate);
+            ExponentialGraphCalculations logisticalGraphCalculations = new ExponentialGraphCalculations(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate, doubleCarryingCapacity);
+            double growthRate = logisticalGraphCalculations.getGrowthRate(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate);
 
             // Create a new stage for the pop-up window
             Stage popupStage = new Stage();
@@ -127,10 +129,10 @@ public class LogisticalGraphController {
             XYChart.Series<Number, Number> series = new XYChart.Series<>();
             series.setName("Discrete Scatter Data");
 
-            // Add data points to the series
-            for (int i = 0; i < 20; i++) {
-                int populationSize = (int) (doubleInitialPopulationSize + growthRate * doubleInitialPopulationSize * (1-doubleInitialPopulationSize/ doubleCarryingCapacity));
-                series.getData().add(new XYChart.Data<>(i, populationSize));
+            for (int i = 0; i < 200; i++) {
+                double t = i;
+                double populationSize = doubleCarryingCapacity / (1 + ((doubleCarryingCapacity - doubleInitialPopulationSize) / doubleInitialPopulationSize) * Math.exp(growthRate * t));
+                series.getData().add(new XYChart.Data<>(t, populationSize));
             }
 
             // Add the series to the scatter chart
