@@ -46,12 +46,15 @@ public class LogisticalGraphController {
     TextField tfDeathRateInfoBox;
     @FXML
     TextField tfCarryingCapInfoBox;
+    @FXML
+    private Slider timeChooser;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
         String birthRate = tfBirthRate.getText();
         String deathRate = tfDeathRate.getText();
         String carryingCapacity = tfCarryingCapacity.getText();
+        Double timeDisplay = timeChooser.getValue();
 
         // Check if both fields have input (optional)
         if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty()|| carryingCapacity.isEmpty()) {
@@ -74,7 +77,7 @@ public class LogisticalGraphController {
         XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
         int populationSize = 0;
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < timeDisplay; i++) {
             populationSize = (int) ((int) ((doubleCarryingCapacity * doubleInitialPopulationSize) / (doubleInitialPopulationSize + ((doubleCarryingCapacity - doubleInitialPopulationSize) * Math.exp(-growthRate * i)))));
             series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
         }
@@ -159,6 +162,7 @@ public class LogisticalGraphController {
             String birthRate = tfBirthRate.getText();
             String deathRate = tfDeathRate.getText();
             String carryingCapacity = tfCarryingCapacity.getText();
+            Double timeDisplay = timeChooser.getValue();
 
             // Check if all required fields have input
             if (initialPopulationSize.isEmpty() || deathRate.isEmpty() || carryingCapacity.isEmpty() || birthRate.isEmpty()) {
@@ -193,9 +197,9 @@ public class LogisticalGraphController {
             XYChart.Series<Number, Number> series = new XYChart.Series<>();
             series.setName("Discrete Scatter Data");
 
-            for (int i = 0; i < 20; i++) {
+            for (int i = 0; i < timeDisplay; i++) {
                 double t = i;
-                double populationSize = (int) ((int) ((doubleCarryingCapacity * doubleInitialPopulationSize) / (doubleInitialPopulationSize + ((doubleCarryingCapacity - doubleInitialPopulationSize) * Math.exp(-growthRate * i)))));
+                double populationSize = ((int) ((doubleCarryingCapacity * doubleInitialPopulationSize) / (doubleInitialPopulationSize + ((doubleCarryingCapacity - doubleInitialPopulationSize) * Math.exp(-growthRate * i)))));
                 series.getData().add(new XYChart.Data<>(t, populationSize));
             }
 

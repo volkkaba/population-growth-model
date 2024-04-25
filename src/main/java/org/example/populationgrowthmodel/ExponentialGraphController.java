@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -46,11 +43,14 @@ public class ExponentialGraphController{
     TextField tfBirthRateInfoBox;
     @FXML
     TextField tfDeathRateInfoBox;
+    @FXML
+    private Slider popChooser;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
         String birthRate = tfBirthRate.getText();
         String deathRate = tfDeathRate.getText();
+        Double time = popChooser.getValue();
 
         // Check if both fields have input (optional)
         if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty()) {
@@ -71,7 +71,7 @@ public class ExponentialGraphController{
         XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
         int populationSize = 0;
-            for (int i = 0; i <= 20; i++) {
+            for (int i = 0; i <= time; i++) {
                 populationSize = (int) (doubleInitialPopulationSize * Math.exp(growthRate * i));
                 series.getData().add(new XYChart.Data<>(i, populationSize));
             }
@@ -146,6 +146,7 @@ public class ExponentialGraphController{
             String initialPopulationSize = tfInitialPopulationSize.getText();
             String birthRate = tfBirthRate.getText();
             String deathRate = tfDeathRate.getText();
+            double time = popChooser.getValue();
 
 
             // Check if all required fields have input
@@ -181,7 +182,7 @@ public class ExponentialGraphController{
             XYChart.Series<Number, Number> series = new XYChart.Series<>();
             series.setName("Discrete Scatter Data");
 
-            for (int i = 0; i < 20; i++) {
+            for (int i = 0; i < time; i++) {
                 double t = i;
                 double populationSize = (int) (doubleInitialPopulationSize * Math.exp(growthRate * i));
                 series.getData().add(new XYChart.Data<>(t, populationSize));
