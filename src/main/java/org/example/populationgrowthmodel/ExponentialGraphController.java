@@ -40,6 +40,12 @@ public class ExponentialGraphController{
     private Button discreteButton;
     @FXML
     private Button buttonMenu;
+    @FXML
+    private TextField tfPopInfoBox;
+    @FXML
+    private TextField tfBirthRateInfoBox;
+    @FXML
+    private TextField tfDeathRateInfoBox;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
@@ -85,7 +91,39 @@ public class ExponentialGraphController{
             popupStage.setTitle("Population Info Box");
             popupStage.show();
     }
+    public void populationInfoBox(){
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/initialpopinfobox.png")));
+        p.getChildren().addAll(img);
 
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Initial Population Info Box");
+        popupStage.show();
+    }
+    public void birthRateInfoBox(){
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/birthrateinfobox.png")));
+        p.getChildren().addAll(img);
+
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Birth Rate Info Box");
+        popupStage.show();
+    }
+    public void deathRateInfoBox(){
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/deathrateinfobox.png")));
+        p.getChildren().addAll(img);
+
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Death Rate Info Box");
+        popupStage.show();
+    }
 
     @FXML
     public void btMenu(ActionEvent e) throws Exception{

@@ -43,12 +43,12 @@
                         <Font name="Britannic Bold" size="35.0" />
                      </font>
                   </Label>
-                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Initial Population Size" GridPane.rowIndex="3">
+                  <TextField fx:id="tfPopInfoBox" alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Initial Population Size" GridPane.rowIndex="3">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Birth Rate" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="tfBirthRateInfoBox" alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Birth Rate" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>
