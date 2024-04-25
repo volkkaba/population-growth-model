@@ -9,7 +9,7 @@
     <children>
         <HBox alignment="CENTER" cacheShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <children>
-                <GridPane alignment="CENTER" cacheShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="1278.0" HBox.hgrow="ALWAYS">
+                <GridPane alignment="CENTER" cacheShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#carryingCapInfoBox" prefHeight="291.0" prefWidth="1278.0" HBox.hgrow="ALWAYS">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,22 +38,22 @@
                                 <Font name="Britannic Bold" size="40.0" />
                             </font>
                         </TextField>
-                        <Label fx:id="resultsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="122.0" prefWidth="320.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Results" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <Label fx:id="resultsLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#displayResultsInfoBox" prefHeight="122.0" prefWidth="320.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Results" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                             <font>
                                 <Font name="Britannic Bold" size="35.0" />
                             </font>
                         </Label>
-                        <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Initial Population Size" GridPane.rowIndex="3">
+                        <TextField fx:id="tfPopInfoBox" alignment="CENTER" editable="false" onMouseClicked="#populationInfoBox" prefHeight="143.0" prefWidth="249.0" text="Initial Population Size" GridPane.rowIndex="3">
                             <font>
                                 <Font name="Britannic Bold" size="20.0" />
                             </font>
                         </TextField>
-                        <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Birth Rate" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="tfBirthRateInfoBox" alignment="CENTER" editable="false" onMouseClicked="#birthRateInfoBox" prefHeight="143.0" prefWidth="249.0" text="Birth Rate" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <font>
                                 <Font name="Britannic Bold" size="20.0" />
                             </font>
                         </TextField>
-                        <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Death Rate" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <TextField fx:id="tfDeathRateInfoBox" alignment="CENTER" editable="false" onMouseClicked="#deathRateInfoBox" prefHeight="143.0" prefWidth="249.0" text="Death Rate" GridPane.columnIndex="2" GridPane.rowIndex="3">
                             <font>
                                 <Font name="Britannic Bold" size="20.0" />
                             </font>
@@ -63,7 +63,7 @@
                                 <Font name="Britannic Bold" size="24.0" />
                             </font>
                         </Button>
-                  <TextField alignment="CENTER" editable="false" layoutX="9.0" layoutY="265.0" prefHeight="64.0" prefWidth="320.0" text="Carrying Capacity" GridPane.rowIndex="1">
+                  <TextField fx:id="tfCarryingCapInfoBox" alignment="CENTER" editable="false" layoutX="9.0" layoutY="265.0" onMouseClicked="#carryingCapInfoBox" prefHeight="64.0" prefWidth="320.0" text="Carrying Capacity" GridPane.rowIndex="1">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>

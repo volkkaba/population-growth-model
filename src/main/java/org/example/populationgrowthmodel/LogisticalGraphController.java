@@ -11,6 +11,9 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -35,6 +38,14 @@ public class LogisticalGraphController {
     private TextField tfCarryingCapacity;
     @FXML
     private Button buttonMenu;
+    @FXML
+    TextField tfPopInfoBox;
+    @FXML
+    TextField tfBirthRateInfoBox;
+    @FXML
+    TextField tfDeathRateInfoBox;
+    @FXML
+    TextField tfCarryingCapInfoBox;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
@@ -69,11 +80,64 @@ public class LogisticalGraphController {
         }
         resultsLabel.setText("Final Population " + populationSize);
         areaChart.getData().add(series); // Add the series to the LineChart
-
-
-
-
     }
+
+    public void displayResultsInfoBox() {
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/resultsinfoboxlogistical.png")));
+        p.getChildren().addAll(img);
+
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Population Info Box");
+        popupStage.show();
+    }
+    public void populationInfoBox(){
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/initialpopinfobox.png")));
+        p.getChildren().addAll(img);
+
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Initial Population Info Box");
+        popupStage.show();
+    }
+    public void birthRateInfoBox(){
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/birthrateinfobox.png")));
+        p.getChildren().addAll(img);
+
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Birth Rate Info Box");
+        popupStage.show();
+    }
+    public void deathRateInfoBox(){
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/deathrateinfobox.png")));
+        p.getChildren().addAll(img);
+
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Death Rate Info Box");
+        popupStage.show();
+    }
+    public void carryingCapInfoBox(){
+        Pane p = new Pane();
+        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/org/example/populationgrowthmodel/assets/carryingcapinfobox.png")));
+        p.getChildren().addAll(img);
+
+        Scene popupScene = new Scene(p);
+        Stage popupStage = new Stage();
+        popupStage.setScene(popupScene);
+        popupStage.setTitle("Carrying Capacity Info Box");
+        popupStage.show();
+    }
+
     @FXML
     public void btMenu(ActionEvent e) throws Exception{
         try{

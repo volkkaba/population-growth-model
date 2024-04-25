@@ -41,11 +41,11 @@ public class ExponentialGraphController{
     @FXML
     private Button buttonMenu;
     @FXML
-    private TextField tfPopInfoBox;
+    TextField tfPopInfoBox;
     @FXML
-    private TextField tfBirthRateInfoBox;
+    TextField tfBirthRateInfoBox;
     @FXML
-    private TextField tfDeathRateInfoBox;
+    TextField tfDeathRateInfoBox;
 
     public void handleCalculateButton() {
         String initialPopulationSize = tfInitialPopulationSize.getText();
