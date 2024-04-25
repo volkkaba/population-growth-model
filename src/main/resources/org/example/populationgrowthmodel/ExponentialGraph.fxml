@@ -40,7 +40,7 @@
                   </TextField>
                   <Label fx:id="resultsLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#displayResultsInfoBox" prefHeight="103.0" prefWidth="327.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Results" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Britannic Bold" size="35.0" />
+                        <Font name="Britannic Bold" size="25.0" />
                      </font>
                   </Label>
                   <TextField fx:id="tfPopInfoBox" alignment="CENTER" editable="false" onMouseClicked="#populationInfoBox" prefHeight="143.0" prefWidth="249.0" text="Initial Population Size" GridPane.rowIndex="3">
@@ -67,7 +67,11 @@
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font></Button>
-                  <Slider fx:id="timeChooser" max="1000.0" min="20.0" />
+                  <Slider fx:id="popChooser" min="20.0" GridPane.rowSpan="2" />
+                  <TextField alignment="CENTER" prefHeight="47.0" prefWidth="308.0" text="Graph Size" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Britannic Bold" size="20.0" />
+                     </font></TextField>
                </children>
             </GridPane>
          </children>

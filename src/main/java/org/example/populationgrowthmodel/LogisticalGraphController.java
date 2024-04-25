@@ -3,22 +3,22 @@ package org.example.populationgrowthmodel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class LogisticalGraphController {
     public Button calculateButton;
@@ -49,40 +49,44 @@ public class LogisticalGraphController {
     @FXML
     private Slider timeChooser;
 
-    public void handleCalculateButton() {
-        String initialPopulationSize = tfInitialPopulationSize.getText();
-        String birthRate = tfBirthRate.getText();
-        String deathRate = tfDeathRate.getText();
-        String carryingCapacity = tfCarryingCapacity.getText();
-        Double timeDisplay = timeChooser.getValue();
+    public void handleCalculateButton(){
+        try {
+            String initialPopulationSize = tfInitialPopulationSize.getText();
+            String birthRate = tfBirthRate.getText();
+            String deathRate = tfDeathRate.getText();
+            String carryingCapacity = tfCarryingCapacity.getText();
+            Double timeDisplay = timeChooser.getValue();
 
-        // Check if both fields have input (optional)
-        if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty()|| carryingCapacity.isEmpty()) {
-            resultsLabel.setText("Please enter values in all fields!");
-            return;
+            // Check if both fields have input (optional)
+            if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty() || carryingCapacity.isEmpty()) {
+                resultsLabel.setText("Please enter values in all fields!");
+                return;
+            }
+
+            // Convert strings to doubles
+            double doubleInitialPopulationSize = Double.parseDouble(initialPopulationSize);
+            double doubleBirthRate = Double.parseDouble(birthRate);
+            double doubleDeathRate = Double.parseDouble(deathRate);
+            double doubleCarryingCapacity = Double.parseDouble(carryingCapacity);
+
+            ExponentialGraphCalculations logisticalGraphCalculations = new ExponentialGraphCalculations(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate, doubleCarryingCapacity);
+            double growthRate = logisticalGraphCalculations.getGrowthRate(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate);
+
+
+            resultsLabel.setText("Result growth rate " + growthRate);
+
+            XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
+
+            int populationSize = 0;
+            for (int i = 0; i < timeDisplay; i++) {
+                populationSize = (int) ((int) ((doubleCarryingCapacity * doubleInitialPopulationSize) / (doubleInitialPopulationSize + ((doubleCarryingCapacity - doubleInitialPopulationSize) * Math.exp(-growthRate * i)))));
+                series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
+            }
+            resultsLabel.setText("Final Population " + populationSize);
+            areaChart.getData().add(series); // Add the series to the LineChart
+        }catch (Exception ex){
+            resultsLabel.setText("Please enter proper values in all fields!");
         }
-
-        // Convert strings to doubles
-        double doubleInitialPopulationSize = Double.parseDouble(initialPopulationSize);
-        double doubleBirthRate = Double.parseDouble(birthRate);
-        double doubleDeathRate = Double.parseDouble(deathRate);
-        double doubleCarryingCapacity = Double.parseDouble(carryingCapacity);
-
-        ExponentialGraphCalculations logisticalGraphCalculations = new ExponentialGraphCalculations(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate, doubleCarryingCapacity);
-        double growthRate = logisticalGraphCalculations.getGrowthRate(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate);
-
-
-        resultsLabel.setText("Result growth rate " + growthRate);
-
-        XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
-
-        int populationSize = 0;
-        for (int i = 0; i < timeDisplay; i++) {
-            populationSize = (int) ((int) ((doubleCarryingCapacity * doubleInitialPopulationSize) / (doubleInitialPopulationSize + ((doubleCarryingCapacity - doubleInitialPopulationSize) * Math.exp(-growthRate * i)))));
-            series.getData().add(new XYChart.Data<>(i, populationSize)); // Add data point to the series
-        }
-        resultsLabel.setText("Final Population " + populationSize);
-        areaChart.getData().add(series); // Add the series to the LineChart
     }
 
     public void displayResultsInfoBox() {
@@ -218,6 +222,7 @@ public class LogisticalGraphController {
             popupStage.showAndWait();
 
         } catch (Exception ex) {
+            resultsLabel.setText("Please enter proper values in all fields!");
             ex.printStackTrace();
         }
     }

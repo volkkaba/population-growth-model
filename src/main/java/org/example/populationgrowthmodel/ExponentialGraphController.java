@@ -24,7 +24,6 @@ public class ExponentialGraphController{
     public Button calculateButton;
     @FXML
     private AreaChart<Number, Number> areaChart;
-
     @FXML
     private TextField tfInitialPopulationSize;
     @FXML
@@ -47,37 +46,41 @@ public class ExponentialGraphController{
     private Slider popChooser;
 
     public void handleCalculateButton() {
-        String initialPopulationSize = tfInitialPopulationSize.getText();
-        String birthRate = tfBirthRate.getText();
-        String deathRate = tfDeathRate.getText();
-        Double time = popChooser.getValue();
+        try {
+            String initialPopulationSize = tfInitialPopulationSize.getText();
+            String birthRate = tfBirthRate.getText();
+            String deathRate = tfDeathRate.getText();
+            Double time = popChooser.getValue();
 
-        // Check if both fields have input (optional)
-        if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty()) {
-            resultsLabel.setText("Please enter values in all fields!");
-            return;
-        }
+            // Check if both fields have input (optional)
+            if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty()) {
+                resultsLabel.setText("Please enter values in all fields!");
+                return;
+            }
 
-        // Convert strings to doubles
-        double doubleInitialPopulationSize = Double.parseDouble(initialPopulationSize);
-        double doubleBirthRate = Double.parseDouble(birthRate);
-        double doubleDeathRate = Double.parseDouble(deathRate);
+            // Convert strings to doubles
+            double doubleInitialPopulationSize = Double.parseDouble(initialPopulationSize);
+            double doubleBirthRate = Double.parseDouble(birthRate);
+            double doubleDeathRate = Double.parseDouble(deathRate);
 
-        ExponentialGraphCalculations exponentialGraphCalculations = new ExponentialGraphCalculations();
-        double growthRate = exponentialGraphCalculations.getGrowthRate(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate);
+            ExponentialGraphCalculations exponentialGraphCalculations = new ExponentialGraphCalculations();
+            double growthRate = exponentialGraphCalculations.getGrowthRate(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate);
 
-        resultsLabel.setText("Result growth rate " + growthRate);
+            resultsLabel.setText("Result growth rate " + growthRate);
 
-        XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
+            XYChart.Series<Number, Number> series = new XYChart.Series<>(); // Create a new series
 
-        int populationSize = 0;
+            int populationSize = 0;
             for (int i = 0; i <= time; i++) {
                 populationSize = (int) (doubleInitialPopulationSize * Math.exp(growthRate * i));
                 series.getData().add(new XYChart.Data<>(i, populationSize));
             }
 
-        resultsLabel.setText("Final Population " + populationSize);
-        areaChart.getData().add(series); // Add the series to the LineChart
+            resultsLabel.setText("Final Population " + populationSize);
+            areaChart.getData().add(series); // Add the series to the LineChart
+        }catch (Exception ex){
+            resultsLabel.setText("Please enter proper values in all fields!");
+        }
 
     }
     public void displayResultsInfoBox() {
@@ -203,6 +206,7 @@ public class ExponentialGraphController{
             popupStage.showAndWait();
 
         } catch (Exception ex) {
+            resultsLabel.setText("Please enter proper values in all fields!");
             ex.printStackTrace();
         }
     }
