@@ -84,7 +84,7 @@ public class ExponentialGraphController{
             popupStage.setScene(popupScene);
             popupStage.setTitle("Population Info Box");
             popupStage.show();
-        }
+    }
 
 
     @FXML
