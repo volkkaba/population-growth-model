@@ -9,64 +9,64 @@
    <children>
       <HBox alignment="CENTER" cacheShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <GridPane alignment="CENTER" cacheShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS">
+            <GridPane alignment="CENTER" cacheShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="965.0" HBox.hgrow="ALWAYS">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="198.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="304.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="121.5" minHeight="10.0" prefHeight="121.5" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="216.6" minHeight="10.0" prefHeight="123.6" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="121.5" minHeight="10.0" prefHeight="61.599999999999994" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="121.5" minHeight="10.0" prefHeight="121.5" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="77.5" minHeight="10.0" prefHeight="42.5" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="tfInitialPopulationSize" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="143.0" prefWidth="249.0" promptText="_______" GridPane.rowIndex="1">
+                  <TextField fx:id="tfInitialPopulationSize" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="143.0" prefWidth="249.0" promptText="_______" GridPane.rowIndex="2">
                      <font>
                         <Font name="Britannic Bold" size="40.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="tfBirthRate" alignment="BOTTOM_CENTER" prefHeight="143.0" prefWidth="249.0" promptText="_______" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="tfBirthRate" alignment="BOTTOM_CENTER" prefHeight="143.0" prefWidth="249.0" promptText="_______" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="Britannic Bold" size="40.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="tfDeathRate" alignment="BOTTOM_CENTER" prefHeight="143.0" prefWidth="249.0" promptText="_______" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="tfDeathRate" alignment="BOTTOM_CENTER" prefHeight="143.0" prefWidth="249.0" promptText="_______" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font name="Britannic Bold" size="40.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="resultsLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#displayResultsInfoBox" prefHeight="134.0" prefWidth="249.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Results" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Label fx:id="resultsLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#displayResultsInfoBox" prefHeight="103.0" prefWidth="327.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Results" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <font>
                         <Font name="Britannic Bold" size="35.0" />
                      </font>
                   </Label>
-                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Initial Population Size" GridPane.rowIndex="2">
+                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Initial Population Size" GridPane.rowIndex="3">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Birth Rate" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Birth Rate" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Death Rate" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField alignment="CENTER" editable="false" prefHeight="143.0" prefWidth="249.0" text="Death Rate" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="calculateButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleCalculateButton" prefHeight="108.0" prefWidth="249.0" text="Calculate" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <Button fx:id="calculateButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleCalculateButton" prefHeight="40.0" prefWidth="329.0" text="Calculate" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Button>
-                  <RadioButton fx:id="discreteButton" mnemonicParsing="false" prefHeight="169.0" prefWidth="271.0" styleClass="background-color-white" stylesheets="@css/MainStyles.css" text="Discrete Time Graphing">
+                  <Button fx:id="discreteButton" mnemonicParsing="false" onAction="#handleDiscreteButton" prefHeight="110.0" prefWidth="311.0" text="Discrete Time Graph" GridPane.columnIndex="3">
                      <font>
-                        <Font name="Britannic Bold" size="20.0" />
-                     </font>
-                  </RadioButton>
+                        <Font name="Britannic Bold" size="24.0" />
+                     </font></Button>
                </children>
             </GridPane>
          </children>

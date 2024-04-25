@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.AreaChart;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -17,7 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,8 +36,8 @@ public class ExponentialGraphController{
     private TextField tfDeathRate;
     @FXML
     private Label resultsLabel;
-    //@FXML
-    //private Button discreteButton;
+    @FXML
+    private Button discreteButton;
     @FXML
     private Button buttonMenu;
 
@@ -104,4 +103,68 @@ public class ExponentialGraphController{
 
     }
 
+    public void handleDiscreteButton(ActionEvent e) {
+        try {
+            String initialPopulationSize = tfInitialPopulationSize.getText();
+            String birthRate = tfBirthRate.getText();
+            String deathRate = tfDeathRate.getText();
+
+
+            // Check if all required fields have input
+            if (initialPopulationSize.isEmpty() || deathRate.isEmpty() || birthRate.isEmpty()) {
+                resultsLabel.setText("Please enter values in all fields!");
+                return;
+            }
+
+            // Convert strings to doubles
+            double doubleInitialPopulationSize = Double.parseDouble(initialPopulationSize);
+            double doubleBirthRate = Double.parseDouble(birthRate);
+            double doubleDeathRate = Double.parseDouble(deathRate);
+
+
+            // Calculate growth rate
+            ExponentialGraphCalculations exponentialGraphCalculations = new ExponentialGraphCalculations();
+            double growthRate = exponentialGraphCalculations.getGrowthRate(doubleInitialPopulationSize, doubleBirthRate, doubleDeathRate);
+
+            // Create a new stage for the pop-up window
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle("Discrete Scatter Chart");
+
+            // Create X and Y axes
+            NumberAxis xAxis = new NumberAxis();
+            NumberAxis yAxis = new NumberAxis();
+
+            // Create a scatter chart
+            ScatterChart<Number, Number> scatterChart = new ScatterChart<>(xAxis, yAxis);
+            scatterChart.setTitle("Discrete Scatter Chart");
+
+            // Generate scatter chart data using the provided values
+            XYChart.Series<Number, Number> series = new XYChart.Series<>();
+            series.setName("Discrete Scatter Data");
+
+            for (int i = 0; i < 20; i++) {
+                double t = i;
+                double populationSize = (int) (doubleInitialPopulationSize * Math.exp(growthRate * i));
+                series.getData().add(new XYChart.Data<>(t, populationSize));
+            }
+
+            // Add the series to the scatter chart
+            scatterChart.getData().add(series);
+
+            // Create a layout and add the scatter chart to it
+            StackPane layout = new StackPane();
+            layout.getChildren().add(scatterChart);
+
+            // Create a scene and set it in the stage
+            Scene scene = new Scene(layout, 400, 300);
+            popupStage.setScene(scene);
+
+            // Show the pop-up window
+            popupStage.showAndWait();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }

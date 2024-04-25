@@ -43,7 +43,7 @@ public class LogisticalGraphController {
         String carryingCapacity = tfCarryingCapacity.getText();
 
         // Check if both fields have input (optional)
-        if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty()) {
+        if (initialPopulationSize.isEmpty() || birthRate.isEmpty() || deathRate.isEmpty()|| carryingCapacity.isEmpty()) {
             resultsLabel.setText("Please enter values in all fields!");
             return;
         }
@@ -97,7 +97,7 @@ public class LogisticalGraphController {
             String carryingCapacity = tfCarryingCapacity.getText();
 
             // Check if all required fields have input
-            if (initialPopulationSize.isEmpty() || deathRate.isEmpty() || carryingCapacity.isEmpty()) {
+            if (initialPopulationSize.isEmpty() || deathRate.isEmpty() || carryingCapacity.isEmpty() || birthRate.isEmpty()) {
                 resultsLabel.setText("Please enter values in all fields!");
                 return;
             }

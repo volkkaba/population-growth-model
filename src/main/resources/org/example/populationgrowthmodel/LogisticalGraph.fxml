@@ -78,6 +78,7 @@
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Button>
+                  <Slider GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
             </children>
